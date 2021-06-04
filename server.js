@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
 const mongoose = require("mongoose");
-const port = process.env.PORT || 9000;
+const port = process.env.PORT || 6000;
 require('dotenv').config();
 const encrypt=require("mongoose-encryption");
 
@@ -31,10 +31,6 @@ customerSchema.plugin(encrypt, {secret:secret});
 const customers = mongoose.model("customers", customerSchema);
 
 //API routes
-
-app.get('/', function(req, res) {
-    res.send("Express is running here");
-})
 
 app.get("/allCustomers", function(req, res) {
     customers.find().then(customers => res.json(customers));
