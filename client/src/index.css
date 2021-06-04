@@ -1,0 +1,124 @@
+#root{
+    margin-top: 3%;
+}
+#title{color: #1b717c; font-size: 30px; font-family: 'Signika', sans-serif; padding-bottom: 10px;}
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: #63a4ff;
+    background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);
+    min-height: 100vh;
+}
+
+/*AddCustomer component styling*/
+
+  #addCustomer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+    background: inherit;
+  
+}
+  #addCustomer:before{
+    content: "";
+    position: absolute;
+    background: inherit;
+    z-index: -1;
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+    filter: blur(10px);
+    margin: -30px;
+}
+
+  /*add customer form display in lg */
+
+  #inline { 
+    float:left; padding: 20px 20px; 
+}
+  
+/*ShowCustomers component styling*/
+
+
+  #table_button{
+    margin: 4px 4px;
+}
+  .table_buttons{
+    display: flex;
+    justify-content: center;
+    padding: 3%;
+}
+
+
+
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+    
+}
+#table_header{
+  background-color: #63a4ff;
+  background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);
+
+}
+#customers td,
+#customers th {
+    border: 1px dotted rgba(255, 255, 255, 0.973);
+    padding: 8px;
+    text-align: center;
+}
+
+#customers tr:nth-child(even) {
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+#customers tr:nth-child(odd) {
+    background-color:#ddd;
+    cursor: pointer;
+}
+
+#customers tr:hover {
+    background-color: #99cdd4;
+}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: black;
+    text-align: center;
+    font-weight: inherit;
+   
+}
+
+.button { 
+    padding: 4px;
+    text-decoration: none;
+    display: inline-block;
+    cursor:grab;
+    border-radius: 4px;
+    font-weight: inherit;
+    border:beige;
+    box-shadow: 0 0 0.5rem 0 rgba(232, 46, 46, 0.2);
+    background-color: #63a4ff;
+    background-image: linear-gradient(315deg,#2cbff9 0%, #59e6ed 100%);
+} 
+
+
+@media only screen and (max-width: 600px) {
+  #inline { 
+    float: none;
+    display: grid;
+    position: relative;             
+  }
+  #show_customers{
+    display: grid;  
+    position: relative;   
+  }
+}
+
+ 
