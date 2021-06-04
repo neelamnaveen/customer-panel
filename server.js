@@ -32,10 +32,6 @@ const customers = mongoose.model("customers", customerSchema);
 
 //API routes
 
-app.get('/', function(req, res) {
-    res.send("Express is running here");
-})
-
 app.get("/allCustomers", function(req, res) {
     customers.find().then(customers => res.json(customers));
 });
