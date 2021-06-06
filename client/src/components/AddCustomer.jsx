@@ -47,7 +47,7 @@ function AddCustomer(){
     return(
         <div id="addCustomer">
 
-            <form onSubmit={addCustomer}>
+            <form onSubmit={addCustomer} className="col-12">
                 
               <div id="inline">
               <label for="name">Name:&nbsp; </label>
