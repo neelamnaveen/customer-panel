@@ -1,11 +1,7 @@
-#root{
-    margin-top: 3%;
-}
-#title{color: #1b717c; font-size: 30px; font-family: 'Signika', sans-serif; padding-bottom: 10px;}
+
+#title{color: #1b717c; font-size: 1.6rem; padding-bottom: 10px;margin:2% 0;}
 
 body {
-    display: flex;
-    justify-content: center;
     background-color: #63a4ff;
     background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);
     min-height: 100vh;
@@ -21,8 +17,8 @@ body {
     border-radius: 5px;
     position: relative;
     z-index: 1;
-    background: inherit;
-  
+    background: inherit;  
+    margin: 0 12%;
 }
   #addCustomer:before{
     content: "";
@@ -37,7 +33,7 @@ body {
   /*add customer form display in lg */
 
   #inline { 
-    float:left; padding: 20px 20px; 
+    float:left; padding: 1rem; 
 }
   
 /*ShowCustomers component styling*/
@@ -52,14 +48,13 @@ body {
     padding: 3%;
 }
 
-
-
 #customers {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 100%;
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
-    
+    margin: 0 12%;
+    display: flex;
+    justify-content: center;
 }
 #table_header{
   background-color: #63a4ff;
@@ -71,6 +66,7 @@ body {
     border: 1px dotted rgba(255, 255, 255, 0.973);
     padding: 8px;
     text-align: center;
+    
 }
 
 #customers tr:nth-child(even) {
@@ -93,6 +89,7 @@ body {
     text-align: center;
     font-weight: inherit;
    
+   
 }
 
 .button { 
@@ -110,15 +107,22 @@ body {
 
 
 @media only screen and (max-width: 600px) {
+ 
+  
   #inline { 
     float: none;
     display: grid;
-    position: relative;             
+              
   }
-  #show_customers{
-    display: grid;  
-    position: relative;   
+  .col-12{
+    display: table;
   }
+  #customers td{
+    font-size: 1.4vw;
+  }
+  #customers th {
+    font-size: 2vw;
+}
 }
 
  
