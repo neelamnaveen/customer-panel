@@ -1,5 +1,5 @@
 
-#title{color: #1b717c; font-size: 1.6rem; padding-bottom: 10px;margin:2% 0;}
+#title{color: #1b717c; font-size: 1.6rem; margin: 2% 0;}
 
 body {
     background-color: #63a4ff;
@@ -9,46 +9,39 @@ body {
 
 /*AddCustomer component styling*/
 
-  #addCustomer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
-    border-radius: 5px;
-    position: relative;
-    z-index: 1;
-    background: inherit;  
-    margin: 0 12%;
+
+.form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+  border-radius: 5px;
+  margin: 0 12%;
+  width: auto;
 }
-  #addCustomer:before{
-    content: "";
-    position: absolute;
-    background: inherit;
-    z-index: -1;
-    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
-    filter: blur(10px);
-    margin: -30px;
+.form-error{
+  color: red;
 }
 
   /*add customer form display in lg */
 
-  #inline { 
+  .inline { 
     float:left; padding: 1rem; 
 }
   
 /*ShowCustomers component styling*/
 
-
+.table_buttons{
+  display: flex;
+  justify-content: center;
+  padding: 3%;
+}
   #table_button{
     margin: 4px 4px;
 }
-  .table_buttons{
-    display: flex;
-    justify-content: center;
-    padding: 3%;
-}
+  
 
-#customers {
+.customers {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
@@ -56,33 +49,32 @@ body {
     display: flex;
     justify-content: center;
 }
-#table_header{
+.table_header{
   background-color: #63a4ff;
   background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);
-
 }
-#customers td,
-#customers th {
+.customers td,
+.customers th {
     border: 1px dotted rgba(255, 255, 255, 0.973);
     padding: 8px;
     text-align: center;
     
 }
 
-#customers tr:nth-child(even) {
+.customers tr:nth-child(even) {
     background-color: #f2f2f2;
     cursor: pointer;
 }
-#customers tr:nth-child(odd) {
+.customers tr:nth-child(odd) {
     background-color:#ddd;
     cursor: pointer;
 }
 
-#customers tr:hover {
+.customers tr:hover {
     background-color: #99cdd4;
 }
 
-#customers th {
+.customers th {
     padding-top: 12px;
     padding-bottom: 12px;
     color: black;
@@ -107,22 +99,41 @@ body {
 
 
 @media only screen and (max-width: 600px) {
- 
-  
-  #inline { 
+
+  .inline { 
     float: none;
-    display: grid;
-              
+    display: grid; 
   }
   .col-12{
     display: table;
   }
-  #customers td{
+  .customers td{
     font-size: 1.4vw;
   }
-  #customers th {
+  .customers th {
     font-size: 2vw;
 }
 }
 
- 
+ @media screen and (max-width: 1800px) and (min-width:100px){
+  .form{
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+    border-radius: 5px;
+   
+  }
+  .inline{
+    float: none;
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .form-button{
+    float: none;
+    display: flex;
+    justify-content: center;
+  }
+ }
