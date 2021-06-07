@@ -25,18 +25,18 @@ function ShowCustomers(){
             
 
     return(
-        <div id="show_customers">
+        <div>
             <center>
-            <div className="table_buttons">
+            <div class="table_buttons">
                 <input id="table_button" onClick={()=>setShow(true)} class="button" type="submit" value="Show customers" />
                 <input id="table_button" onClick={()=>setShow(false)} class="button" type="submit" value="Hide customers" />
             </div>
             {showCustomers&&
-              <div id="customers">
+              <div class="customers">
            
                     <table className="col-12">
 
-                              <tr id="table_header">
+                              <tr class="table_header">
                               <th>No.</th>
                               <th>Name</th>
                               <th>Email</th>
