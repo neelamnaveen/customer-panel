@@ -98,24 +98,7 @@ body {
 } 
 
 
-@media only screen and (max-width: 600px) {
-
-  .inline { 
-    float: none;
-    display: grid; 
-  }
-  .col-12{
-    display: table;
-  }
-  .customers td{
-    font-size: 1.4vw;
-  }
-  .customers th {
-    font-size: 2vw;
-}
-}
-
- @media screen and (max-width: 1800px) and (min-width:100px){
+ @media screen and (max-width: 1800px){
   .form{
     display: inline-block;
     align-items: center;
