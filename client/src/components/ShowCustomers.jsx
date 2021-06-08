@@ -1,10 +1,9 @@
+import axios from "axios";
 import React from "react";
 import { useState, useEffect } from 'react';
 
 function ShowCustomers(){
     
-            let count=1;
-
             const [showCustomers, setShow]=useState(false)
 
             const [customers, setCustomers] = useState([{
@@ -22,8 +21,13 @@ function ShowCustomers(){
                 }).then(jsonRes => setCustomers(jsonRes))
             })
             
-            
-
+            function removeCustomer(id){
+                axios.delete('/removeCustomer/'+id);
+                console.log(id);
+                alert("Customer has been removed from record");
+                axios.get("/")
+            }             
+            let count=1;
     return(
         <div>
             <center>
@@ -36,24 +40,29 @@ function ShowCustomers(){
            
                     <table className="col-12">
 
-                              <tr class="table_header">
-                              <th>No.</th>
-                              <th>Name</th>
-                              <th>Email</th>
-                              <th>Contact No.</th>
-                              <th>Address</th>
-                              
-                              </tr>
+                        <thead>
+                            <tr class="table_header">
+                                <th>No.</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Contact No.</th>
+                                <th>Address</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
 
                         {customers.map(customer => {
                             return (
-                                <tr>
+                            
+                            <tr>
                                 <td>{count++}</td>
                                 <td>{customer.name}</td>
                                 <td>{customer.email}</td>
                                 <td>{customer.contactNo}</td>
-                                <td>{customer.address}</td>                          
-                                </tr>
+                                <td>{customer.address}</td> 
+                                <td> <input id="table_button" onClick={()=>removeCustomer(customer._id)} class="button" type="submit" value="Delete" /></td>                        
+                            </tr>
+                                   
                             )
                             })
                         }

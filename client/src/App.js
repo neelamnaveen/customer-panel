@@ -3,9 +3,10 @@ import AddCustomer from './components/AddCustomer';
 function App() {
     return ( 
         <div className = "App" >
-                <center><h2 id="title">CUSTOMER PANEL</h2></center><br/>
+                <center><h2 id="title">CUSTOMER PANEL</h2>
                 <AddCustomer/>   
                 <ShowCustomers/>
+                </center>
         </div>
     );
 

@@ -60,30 +60,26 @@ function AddCustomer(){
                 
               <div class="inline">
               <label for="name">Name:&nbsp; </label>
-              <input onChange={handleChange} type="text" name="name" value={customer.name} />
-              {errors.name && <p className="error">{errors.name}</p>}
+              <input onChange={handleChange} type="text" name="name" value={customer.name} />          
               </div>
 
               <div class="inline">
               <label for="email">Email:&nbsp;</label>
-              <input onChange={handleChange} type="text" name="email" value={customer.email} />
-              {errors.email && <p className="error">{errors.email}</p>}
+              <input onChange={handleChange} type="text" name="email" value={customer.email} />    
               </div>
 
               <div class="inline">
               <label for="text">Contact No.&nbsp;</label>
-              <input onChange={handleChange} type="text"  name="contactNo" value={customer.contactNo} />
-              {errors.contactNo && <p className="error">{errors.contactNo}</p>}
+              <input onChange={handleChange} type="text"  name="contactNo" value={customer.contactNo} />             
               </div>
 
               <div class="inline">
               <label for="address">Address:&nbsp;</label>
               <input onChange={handleChange} type="text" name="address" value={customer.address} />
-              {errors.address && <p className="error">{errors.address}</p>}
               </div>
-
+              
               <div class="inline form-button">          
-              <input class="button" type="submit" value="Add Customer" />
+              <input class="button" type="submit" value="Add Customer" value="Add customer" />
               </div><br/>
         
             </form>
