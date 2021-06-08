@@ -16,8 +16,6 @@ app.use(cors());
 mongoose.connect(process.env.DATABASE_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = global.Promise;
 
-const secret=process.env.SECRET;
-
 var customerSchema = new mongoose.Schema({
     name: String,
     email: String,
@@ -26,6 +24,8 @@ var customerSchema = new mongoose.Schema({
 });
 
 // Data encryption
+
+const secret=process.env.SECRET;
 customerSchema.plugin(encrypt, {secret:secret});
 
 const customers = mongoose.model("customers", customerSchema);
@@ -48,6 +48,16 @@ app.post("/addCustomer", function(req, res) {
     res.redirect('..');
 });
 
+app.delete("/removeCustomer/:id", function(req,res){
+    const id=req.params.id;
+    // console.log(id);
+    customers.findByIdAndDelete({_id: id}, function(err){
+        if(err){
+            console.log(err);           
+        }
+    })  
+});
+
 if(process.env.NODE_ENV==="production"){
     app.use(express.static('client/build'));
     app.get("*",(req, res) =>{
@@ -56,5 +66,8 @@ if(process.env.NODE_ENV==="production"){
 }
 
 app.listen(port, function() {
-    console.log("express is running");
+    console.log("Express is running on port :" +port);
 })
+
+// Package.json script for deploy to heroku 
+// "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix client"
