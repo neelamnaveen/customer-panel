@@ -69,5 +69,5 @@ app.listen(port, function() {
     console.log("Express is running on port :" +port);
 })
 
-// Package.json script for deploy to heroku 
+// Package.json script for deploying to heroku
 // "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix client"
