@@ -36,14 +36,14 @@ function AddCustomer(){
             address: customer.address
         }
         axios.post('/addCustomer',newCustomer);
-            alert("---- New customer added ----");
-            axios.get('/');
         setCustomer({
             name: '',
             email: '',
             contactNo: '',
             address: ''
         });
+        alert("---- New customer added ----");
+        window.location.reload();
       }
     },[errors]);
 
@@ -79,7 +79,7 @@ function AddCustomer(){
               </div>
               
               <div class="inline form-button">          
-              <input class="button" type="submit" value="Add Customer" value="Add customer" />
+              <input class="button" type="submit" value="Add Customer" />
               </div><br/>
         
             </form>

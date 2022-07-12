@@ -1,39 +1,44 @@
 import axios from "axios";
 import React from "react";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 function ShowCustomers(){
     
             const [showCustomers, setShow]=useState(false)
 
             const [customers, setCustomers] = useState([{
-                name: '',
-                email: '',
-                contactNo: '',
-                address: ''
+                name: 'loading...',
+                email: 'loading...',
+                contactNo: 'loading...',
+                address: 'loading...'
             }])
-            
-            useEffect(() => {
-                fetch('/allCustomers').then(res => {
-                    if (res.ok) {
-                        return res.json()
-                    }
-                }).then(jsonRes => setCustomers(jsonRes))
-            })
+
+            function showCustomerInfo(taggle){
+                if(taggle){
+                    fetch('/allCustomers').then(res => {
+                        if (res.ok) {
+                            return res.json()
+                        }
+                    }).then(jsonRes => setCustomers(jsonRes))
+                    setShow(true)
+                } else {
+                    setShow(false)
+                }
+            }
             
             function removeCustomer(id){
                 axios.delete('/removeCustomer/'+id);
-                console.log(id);
-                alert("Customer has been removed from record");
-                axios.get("/")
+                // console.log(id);
+                alert("---- Customer has been removed from record ----");
+                window.location.reload()
             }             
             let count=1;
     return(
         <div>
             <center>
             <div class="table_buttons">
-                <input id="table_button" onClick={()=>setShow(true)} class="button" type="submit" value="Show customers" />
-                <input id="table_button" onClick={()=>setShow(false)} class="button" type="submit" value="Hide customers" />
+                <input id="table_button" onClick={()=>showCustomerInfo(true)} class="button" type="submit" value="Show customers" />
+                <input id="table_button" onClick={()=>showCustomerInfo(false)} class="button" type="submit" value="Hide customers" />
             </div>
             {showCustomers&&
               <div class="customers">
